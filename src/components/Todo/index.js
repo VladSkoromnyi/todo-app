@@ -1,10 +1,8 @@
 import "./index.css"
-// import { TodoForm } from "../TodoForm";
 
 export const Todo = ({ todo, taskHandle, removeTask }) => {
   return (
     <>
-    {/* <ul> */}
       <li 
         key={todo.id}
         className="Todo__item"
@@ -23,11 +21,6 @@ export const Todo = ({ todo, taskHandle, removeTask }) => {
           Remove
         </button>
       </li>
-
-      {/* <li>
-        <TodoForm />
-      </li>
-    </ul> */}
     </>
   );
 };

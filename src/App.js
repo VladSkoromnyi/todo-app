@@ -43,7 +43,6 @@ export default function App() {
   return (
     <div className="Todo">
       <ul className="Todo__list">
-        {/* <li> */}
           {todos.map((todo) => {
             return (
               <Todo
@@ -53,8 +52,7 @@ export default function App() {
                 removeTask={removeTask}
               />
             );
-          })}          
-        {/* </li> */}
+          })}         
 
         <li className="Todo__item">
           <TodoForm addTask={addTask} />
