@@ -1,3 +1,4 @@
+import "./index.css"
 import { useState } from "react";
 
 export const TodoForm = ({ addTask }) => {
@@ -20,16 +21,22 @@ export const TodoForm = ({ addTask }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form
+      onSubmit={handleSubmit}
+      className="Todo__form"
+    >
       <input
         type="text"
         value={userInput}
         onChange={handleChange}
         onKeyDown={handleKeyPress}
         placeholder="Your task"
+        className="Todo__input"
       />
 
-      <button>Add</button>
+      <button className="Todo__form-button">
+        Add
+      </button>
     </form>
   );
 };

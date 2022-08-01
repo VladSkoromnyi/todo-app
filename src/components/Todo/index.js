@@ -1,14 +1,33 @@
+import "./index.css"
+// import { TodoForm } from "../TodoForm";
+
 export const Todo = ({ todo, taskHandle, removeTask }) => {
   return (
-    <li key={todo.id}>
-      <p
-        onClick={() => taskHandle(todo.id)}
-        className={todo.complete ? "complete" : "uncomplete"}
+    <>
+    {/* <ul> */}
+      <li 
+        key={todo.id}
+        className="Todo__item"
       >
-        {todo.task}
-      </p>
+        <p
+          onClick={() => taskHandle(todo.id)}
+          className={`Todo__item-title ${todo.complete ? "complete" : "uncomplete"}`}
+        >
+          {todo.task}
+        </p>
 
-      <button onClick={() => removeTask(todo.id)}>X</button>
-    </li>
+        <button 
+          onClick={() => removeTask(todo.id)}
+          className="Todo__item-button"
+        >
+          Remove
+        </button>
+      </li>
+
+      {/* <li>
+        <TodoForm />
+      </li>
+    </ul> */}
+    </>
   );
 };

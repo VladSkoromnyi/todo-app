@@ -1,10 +1,17 @@
+import "./index.css";
 import { TodoForm } from "./components/TodoForm";
 import { Todo } from "./components/Todo";
-import { useState } from "react";
-import "./styles.css";
+import { useEffect, useState } from "react";
 
 export default function App() {
   const [todos, setTodos] = useState([]);
+
+  useEffect(() => {
+    if (localStorage.getItem('localTasks')) {
+      const localStorageTodos = JSON.parse(localStorage.getItem('localTasks'))
+      setTodos(localStorageTodos)
+    }
+  }, [])
 
   const addTask = (userInput) => {
     if (userInput) {
@@ -15,36 +22,41 @@ export default function App() {
       };
 
       setTodos([...todos, newTask]);
+      localStorage.setItem('localTasks', JSON.stringify([ ...todos, newTask ]))
     }
   };
 
   const removeTask = (id) => {
-    setTodos([...todos.filter((todo) => todo.id !== id)]);
+    const deleted = todos.filter((todo) => todo.id !== id)
+    setTodos(deleted)
+    localStorage.setItem('localTasks', JSON.stringify(deleted))
   };
 
   const handleToggle = (id) => {
-    setTodos([
-      ...todos.map((todo) =>
-        todo.id === id ? { ...todo, complete: !todo.complete } : { todo }
-      )
-    ]);
+    const isComplete = todos.map((todo) =>
+      todo.id === id ? { ...todo, complete: !todo.complete } : { ...todo }
+    )
+    setTodos(isComplete)
+    localStorage.setItem('localTasks', JSON.stringify(isComplete))
   };
 
   return (
-    <div className="App">
-      <ul>
-        {todos.map((todo) => {
-          return (
-            <Todo
-              todo={todo}
-              key={todo.id}
-              taskHandle={handleToggle}
-              removeTask={removeTask}
-            />
-          );
-        })}
+    <div className="Todo">
+      <ul className="Todo__list">
+        {/* <li> */}
+          {todos.map((todo) => {
+            return (
+              <Todo
+                todo={todo}
+                key={todo.id}
+                taskHandle={handleToggle}
+                removeTask={removeTask}
+              />
+            );
+          })}          
+        {/* </li> */}
 
-        <li>
+        <li className="Todo__item">
           <TodoForm addTask={addTask} />
         </li>
       </ul>
