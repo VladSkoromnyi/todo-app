@@ -2,3 +2,14 @@
 	display: flex;
 	justify-content: space-between;
 }
+
+.Todo__input {
+	border: 1px solid #DFE0EB;
+	padding: 0 10px;
+	border-radius: 5px;
+	outline: none;
+}
+
+.Todo__input:focus {
+	border-color: #3851FF;
+}

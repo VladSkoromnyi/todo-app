@@ -30,6 +30,16 @@ button {
   text-transform: uppercase;
   padding: 5px 10px;
   font-size: 11px;
+
+  transition: border-color 0.3s ease;
+}
+
+button.Todo__item-button:hover {
+  border-color: red;
+}
+
+button.Todo__form-button:hover {
+  border-color: green;
 }
 
 .Todo {

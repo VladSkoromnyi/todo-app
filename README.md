@@ -1,2 +1,1 @@
-# my-react-todo-app
-Created with CodeSandbox
+# Todo App
