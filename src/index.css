@@ -1,0 +1,54 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;  
+  background: #f4f6fd;
+}
+
+body,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+li p {
+  display: flex;
+}
+
+button {
+  cursor: pointer;
+  background: #fff;
+  outline: none;
+  border: 2px solid #DFE0EB;
+  border-radius: 5px;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  font-size: 11px;
+}
+
+.Todo {
+  margin: 50px auto 0;
+  padding: 20px;
+  width: 60%;
+  border: 1px solid #DFE0EB;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.Todo__list {
+  border-left: 3px solid #3851FF;
+}
+
+.complete {
+  color: green;
+}
+
+.uncomplete {
+  color: red;
+}

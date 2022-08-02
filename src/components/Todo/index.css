@@ -1,0 +1,16 @@
+.Todo__item {
+	width: 50%;
+	padding: 10px;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.Todo__item:not(:last-child) {
+	display: flex;
+	border-bottom: 1px solid #DFE0EB;
+}
+
+.Todo__item-title {
+	cursor: pointer;
+	user-select: none;
+}
